@@ -13,11 +13,12 @@ public class Main {
             sc.nextLine();
             switch (ch) {
                 case 1:
+                    System.out.println("Two player mode");
                     TicTacToeGame game = new TicTacToeGame();
                     game.startGame();
                     break;
                 case 2:
-                    System.out.println("AI mode is under development.");
+                    System.out.println("AI mode");
                     TicTacToeGame aiGame = new TicTacToeGame(1);
                     aiGame.startGame();
                     break;

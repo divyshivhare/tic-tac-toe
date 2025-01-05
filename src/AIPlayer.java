@@ -1,4 +1,7 @@
 public class AIPlayer extends Player {
+
+    private static final int SIZE = 3;
+
     public AIPlayer(String name, char symbol) {
         super(name, symbol);
     }
@@ -9,8 +12,8 @@ public class AIPlayer extends Player {
         char[][] grid = Board.getGrid();
         char opponentSymbol = (getSymbol() == 'X') ? 'O' : 'X';
         // 1. Check for a winning move
-        for (int row = 0; row < 3; row++) {
-            for (int col = 0; col < 3; col++) {
+        for (int row = 0; row < SIZE; row++) {
+            for (int col = 0; col < SIZE; col++) {
                 if (Board.isCellEmpty(row, col)) {
                     grid[row][col] = getSymbol();
                     if (Board.checkWin(getSymbol())) {
@@ -22,8 +25,8 @@ public class AIPlayer extends Player {
             }
         }
         // 2. Block the opponent's winning move
-        for (int row = 0; row < 3; row++) {
-            for (int col = 0; col < 3; col++) {
+        for (int row = 0; row < SIZE; row++) {
+            for (int col = 0; col < SIZE; col++) {
                 if (Board.isCellEmpty(row, col)) {
                     grid[row][col] = opponentSymbol;
                     if (Board.checkWin(opponentSymbol)) {
@@ -35,8 +38,8 @@ public class AIPlayer extends Player {
             }
         }
         // 3. Pick the first available cell
-        for (int row = 0; row < 3; row++) {
-            for (int col = 0; col < 3; col++) {
+        for (int row = 0; row < SIZE; row++) {
+            for (int col = 0; col < SIZE; col++) {
                 if (Board.isCellEmpty(row, col)) {
                     return new int[]{row, col};
                 }
